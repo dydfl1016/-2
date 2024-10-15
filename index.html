@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Comprehension Homework</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Reading Comprehension Homework</h2>
+<p>I see three little kids playing basketball. The little kids are Ben, Sara, and Kate. They will play at the park.</p>
+
+<div class="question">
+    <p>1. 세 명의 아이들은 누구인가요?</p>
+    <label><input type="radio" name="q1" value="a"> Ben, Sara, John</label><br>
+    <label><input type="radio" name="q1" value="b"> Ben, Sara, Kate</label><br>
+    <label><input type="radio" name="q1" value="c"> Ben, Kate, Mike</label>
+</div>
+
+<div class="question">
+    <p>2. 아이들이 어디서 놀 예정인가요?</p>
+    <label><input type="radio" name="q2" value="a"> 학교에서</label><br>
+    <label><input type="radio" name="q2" value="b"> 공원에서</label><br>
+    <label><input type="radio" name="q2" value="c"> 해변에서</label>
+</div>
+
+<div class="question">
+    <p>3. 아이들은 무엇을 하고 있나요?</p>
+    <label><input type="radio" name="q3" value="a"> 축구를 하고 있어요</label><br>
+    <label><input type="radio" name="q3" value="b"> 농구를 하고 있어요</label><br>
+    <label><input type="radio" name="q3" value="c"> 숨바꼭질을 하고 있어요</label>
+</div>
+
+<div class="question">
+    <p>4. 아이들의 이름은 몇 개인가요?</p>
+    <label><input type="radio" name="q4" value="a"> 두 명</label><br>
+    <label><input type="radio" name="q4" value="b"> 세 명</label><br>
+    <label><input type="radio" name="q4" value="c"> 네 명</label>
+</div>
+
+<div class="question">
+    <p>5. Sara는 아이들 중 몇 번째로 언급되었나요?</p>
+    <label><input type="radio" name="q5" value="a"> 첫 번째</label><br>
+    <label><input type="radio" name="q5" value="b"> 두 번째</label><br>
+    <label><input type="radio" name="q5" value="c"> 세 번째</label>
+</div>
+
+<button onclick="checkAnswers()">정답 제출</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function checkAnswers() {
+    var correctAnswers = {
+        q1: "b",
+        q2: "b",
+        q3: "b",
+        q4: "b",
+        q5: "b"
+    };
+    
+    var score = 0;
+    for (var q in correctAnswers) {
+        var answer = document.querySelector('input[name="' + q + '"]:checked');
+        if (answer && answer.value === correctAnswers[q]) {
+            score++;
+        }
+    }
+    
+    var resultText = "총 점수: " + score + "/5. ";
+    if (score === 5) {
+        resultText += "잘했어요!";
+    } else {
+        resultText += "다시 한 번 확인해 보세요.";
+    }
+    
+    document.getElementById("result").innerText = resultText;
+}
+</script>
+
+</body>
+</html>
